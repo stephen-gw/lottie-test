@@ -1,6 +1,6 @@
-const play = document.querySelector('button');
+const play = document.getElementById('lottie1-trigger');
 
-const svgContainer = document.getElementById('svg');
+const svgContainer = document.getElementById('lottie1');
 const animItem = bodymovin.loadAnimation({
 	wrapper: svgContainer,
 	animType: 'svg',
