@@ -96,6 +96,14 @@ body {
 	align-items: center;
 }
 
+.svg-container-fullscreen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
 .transition-opacity {
 	transition: opacity 1s ease;
 }
@@ -106,22 +114,12 @@ body {
 	display: flex;
 }
 
-.svg-container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
+#lottie1-container {
 	z-index: -1;
 	pointer-events: none;
 }
 
-.lottie1 {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
+#lottie1 {
 	pointer-events: none;
 	object-fit: cover;
 	filter: brightness(1.15);
