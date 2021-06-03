@@ -9,13 +9,9 @@
 	</head>
 	<body>
 		<div class="container select1">
-			<div class="svg-container svg-container-fullscreen" id="lottie1-container">
-				<div class="hidden" id="lottie1"></div>
-			</div>
-
-			<div class="svg-container svg-container-fullscreen" id="lottie2-container">
-				<div class="hidden" id="lottie2"></div>
-			</div>
+			<!-- <div class="svg-container" id="lottie1-container">
+				<div class="svg svg-fullscreen hidden" id="lottie1"></div>
+			</div> -->
 
 			<section class="screen screen1 screen-center transition-opacity">
 				<div class="magic-btn-wrapper">
@@ -24,9 +20,12 @@
 					</button>
 				</div>
 			</section>
-			<section class="screen screen2 screen-center transition-opacity">
-				<h1>Welcome to screen 2</h1>
-			</section>
+
+			<div class="svg-container invisible transition-opacity" id="lottie2-container">
+				<div class="svg" id="lottie2"></div>
+			</div>
+
+			<!-- <section class="screen screen2 screen-center transition-opacity"></section> -->
 		</div>
 
 		<script

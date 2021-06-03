@@ -43,9 +43,9 @@ function Fadeable(el, displayMode = 'block') {
 
 const lottie1Trigger = document.getElementById('lottie1-trigger');
 
-const lottie1Container = document.getElementById('lottie1');
+const lottie1Wrapper = document.getElementById('lottie1');
 const lottie1 = bodymovin.loadAnimation({
-	wrapper: lottie1Container,
+	wrapper: lottie1Wrapper,
 	animType: 'svg',
 	loop: false,
 	autoplay: false,
@@ -58,16 +58,19 @@ const lottie1 = bodymovin.loadAnimation({
 });
 
 lottie1Trigger.addEventListener('click', () => {
-	lottie1Container.classList.remove('hidden');
-	lottie1.goToAndPlay(0, true);
+	// lottie1Container.classList.remove('hidden');
+	// lottie1.goToAndPlay(0, true);
+	setTimeout(() => {
+		startLottie2();
+	}, 3000);
 	// fadeElOut(document.querySelector('.screen1'), 600);
 
 	let screen1 = new Fadeable(document.querySelector('.screen1'), 'flex');
 	screen1.fadeElOut(1000);
 
-	setTimeout(() => {
-		startScreen2();
-	}, 1000);
+	// setTimeout(() => {
+	// 	startScreen2();
+	// }, 5000);
 });
 
 lottie1.addEventListener('complete', () => {
@@ -77,19 +80,28 @@ lottie1.addEventListener('complete', () => {
 // Screen2
 
 function startScreen2() {
-	let screen2 = new Fadeable(document.querySelector('.screen2'), 'flex');
-	console.log('starting screen 2');
-	screen2.fadeElIn(2001);
+	// let screen2 = new Fadeable(document.querySelector('.screen2'), 'flex');
+	// console.log('starting screen 2');
+	// screen2.fadeElIn(2001);
+	startLottie2();
 }
 
-const lottie2Container = document.getElementById('lottie2');
+const lottie2Wrapper = document.getElementById('lottie2');
 const lottie2 = bodymovin.loadAnimation({
-	wrapper: lottie2Container,
+	wrapper: lottie2Wrapper,
 	animType: 'svg',
 	loop: false,
 	autoplay: false,
 	rendererSettings: {
 		preserveAspectRatio: 'xMidYMid slice'
 	},
-	path: 'https://assets4.lottiefiles.com/private_files/lf30_lb5k90wv.json'
+	path: 'https://assets4.lottiefiles.com/packages/lf20_emy3lanj.json'
 });
+
+function startLottie2() {
+	document.getElementById('lottie2-container').classList.remove('invisible');
+	lottie2.goToAndPlay(0, true);
+	// setTimeout(() => {
+	// 	document.getElementById('lottie2').classList.add('lottie2-zoomed');
+	// }, 1000);
+}

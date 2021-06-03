@@ -9,6 +9,14 @@ body {
 	display: none;
 }
 
+.invisible {
+	opacity: 0;
+}
+
+.transition-opacity {
+	transition: opacity 1s ease;
+}
+
 .magic-btn-wrapper {
 	--border-outer-width: 9px;
 	--border-inner-width: 6px;
@@ -71,7 +79,7 @@ body {
 .magic-btn:focus:after {
 	width: calc(100% + var(--border-outer-width) * 2);
 	height: calc(100% + var(--border-outer-width) * 2);
-	animation: animateBorder 4s ease infinite alternate;
+	animation: animateBorder 3s ease infinite alternate;
 }
 
 @keyframes animateBorder {
@@ -96,7 +104,11 @@ body {
 	align-items: center;
 }
 
-.svg-container-fullscreen {
+.svg {
+	pointer-events: none;
+}
+
+.svg-fullscreen {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -144,4 +156,19 @@ body {
 	font-size: 4rem;
 	font-weight: 100;
 	color: #556;
+}
+
+#lottie2-container {
+	z-index: 100;
+}
+
+#lottie2 {
+	width: 60vh;
+	margin: 0 auto;
+	transform: none;
+	transition: transform 3s ease;
+}
+
+#lottie2.lottie2-zoomed {
+	transform: scale(1.4) translate(-20vh, 2vh);
 }
