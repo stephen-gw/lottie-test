@@ -58,20 +58,19 @@ const lottie1 = bodymovin.loadAnimation({
 });
 
 lottie1Trigger.addEventListener('click', () => {
-	// lottie1Container.classList.remove('hidden');
-	// lottie1.goToAndPlay(0, true);
-	setTimeout(() => {
-		startLottie2();
-	}, 3000);
-	// fadeElOut(document.querySelector('.screen1'), 600);
+	startLottie1();
 
 	let screen1 = new Fadeable(document.querySelector('.screen1'), 'flex');
 	screen1.fadeElOut(1000);
-
-	// setTimeout(() => {
-	// 	startScreen2();
-	// }, 5000);
 });
+
+function startLottie1() {
+	lottie1Wrapper.classList.remove('hidden');
+	lottie1.goToAndPlay(0, true);
+	setTimeout(() => {
+		startScreen2();
+	}, 1200);
+}
 
 lottie1.addEventListener('complete', () => {
 	console.log('complete');
@@ -90,7 +89,7 @@ const lottie2Wrapper = document.getElementById('lottie2');
 const lottie2 = bodymovin.loadAnimation({
 	wrapper: lottie2Wrapper,
 	animType: 'svg',
-	loop: false,
+	loop: true,
 	autoplay: false,
 	rendererSettings: {
 		preserveAspectRatio: 'xMidYMid slice'
@@ -101,7 +100,106 @@ const lottie2 = bodymovin.loadAnimation({
 function startLottie2() {
 	document.getElementById('lottie2-container').classList.remove('invisible');
 	lottie2.goToAndPlay(0, true);
-	// setTimeout(() => {
-	// 	document.getElementById('lottie2').classList.add('lottie2-zoomed');
-	// }, 1000);
+	setTimeout(() => {
+		document.getElementById('lottie2').classList.add('lottie2-zoomed');
+	}, 1500);
+	setTimeout(() => {
+		let screen2 = new Fadeable(document.querySelector('.screen2'), 'flex');
+		console.log('starting screen 2');
+		screen2.fadeElIn(2001);
+	}, 3000);
+	setTimeout(() => {
+		document.getElementById('lottie2-container').classList.add('transition-transform-custom-slow-out');
+		document.getElementById('screen2').classList.add('transition-transform-custom-slow-out');
+		document.getElementById('lottie1-container').classList.add('transition-transform-custom-slow-out');
+		setTimeout(() => {
+			document.getElementById('lottie2-container').classList.add('throw-left');
+		}, 100);
+		setTimeout(() => {
+			document.getElementById('screen2').classList.add('throw-left');
+		}, 300);
+		setTimeout(() => {
+			document.getElementById('lottie1-container').classList.add('throw-left');
+		}, 400);
+
+		setTimeout(startLottie3, 2300);
+	}, 6000);
 }
+
+// Screen3
+
+const lottie3Wrapper = document.getElementById('lottie3');
+const lottie3 = bodymovin.loadAnimation({
+	wrapper: lottie3Wrapper,
+	animType: 'svg',
+	loop: false,
+	autoplay: false,
+	path: 'https://assets7.lottiefiles.com/packages/lf20_fcqkht5y.json'
+});
+
+function startLottie3() {
+	console.log('started lottie3');
+	lottie3.goToAndPlay(0, true);
+
+	document.getElementById('lottie3').classList.remove('hidden');
+
+	document.getElementById('lottie3-container').classList.add('transition-opacity');
+	setTimeout(() => {
+		document.getElementById('lottie3-container').classList.add('invisible');
+		startLottie4();
+	}, 4400);
+}
+
+// Screen4
+
+const lottie4Wrapper = document.getElementById('lottie4');
+const lottie4 = bodymovin.loadAnimation({
+	wrapper: lottie4Wrapper,
+	animType: 'svg',
+	loop: true,
+	autoplay: false,
+	path: 'https://assets3.lottiefiles.com/private_files/lf30_lb5k90wv.json'
+});
+
+function startLottie4() {
+	lottie4.goToAndPlay(0, true);
+	document.getElementById('lottie4-container').classList.remove('invisible');
+	setTimeout(() => {
+		document.getElementById('lottie4-container').classList.remove('lottie4-container-start-zoomed');
+	}, 0);
+
+	setTimeout(() => {
+		document.querySelector('#lottie4-container .screen4-giant-ring').classList.add('screen4-giant-ring-collapsed');
+	}, 4500);
+
+	setTimeout(startLottie5, 5500);
+}
+
+// Screen5
+
+function startLottie5() {
+	console.log('screen5');
+	document.querySelector('.screen5').classList.remove('invisible');
+
+	setTimeout(() => {
+		document.querySelector('.screen5-text-box').classList.add('screen5-text-box-entrance');
+	}, 0);
+
+	setTimeout(() => {
+		lottie5Wrapper.classList.remove('hidden');
+		lottie5.goToAndPlay(0, true);
+
+		setTimeout(() => {
+			document.getElementById('lottie5').classList.add('invisible');
+		}, 500);
+	}, 0);
+}
+
+const lottie5Wrapper = document.getElementById('lottie5');
+const lottie5 = bodymovin.loadAnimation({
+	wrapper: lottie5Wrapper,
+	animType: 'svg',
+	loop: false,
+	autoplay: false,
+	path: 'lottie/fireworks_transparent.json'
+});
